@@ -1,3 +1,6 @@
+import java.util.List;
+
+
 public class Pig {
 
     /*
@@ -26,7 +29,26 @@ public class Pig {
 
     // Implement your solution here!
     public static String pigLatin(String sentence) {
-        return null;
+        String newSentence = "";
+        String[] wordList = sentence.split(" ");
+
+        String vowelString = "aeiou";
+
+        for (String word : wordList){
+            if (!vowelString.contains(word.substring(0, 1))){
+                if (word.length() > 1){
+                    String newWord = word.substring(1, word.length());
+                    String endWord = word.substring(0, 1) + "ay";
+                    newSentence += newWord + endWord + " ";
+                } else {
+                    newSentence += word + "ay ";
+                }
+            } else {
+                newSentence += word + " ";
+            }
+        }
+        
+        return newSentence.trim();
     }
 
 

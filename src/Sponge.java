@@ -33,7 +33,48 @@ public class Sponge {
 
   // Implement your solution here!
   public static String spongeCase(String sentence) {
-    return null;
+    //I will need to use a for-loop or at least a for-each
+    //I will need to use modulus and determine if current position is even
+    //I will need to watch for spaces
+    //I will need to watch out for uppercase letters
+
+    //character to a string or vice versa, and then having to make sure the data type matches when I convert the character in the current index to an upper case or a lower case
+
+    String[] wordsArray = sentence.split(" ");
+    String newSentence = "";
+
+    for (String word : wordsArray){
+      int oneBased = 1;
+      for (int i = 0; i < word.length(); i++){
+        if (oneBased % 2 != 0){
+          newSentence += word.substring(i, i + 1).toLowerCase();
+          oneBased++;
+        } else if (oneBased % 2 == 0){
+          newSentence += word.substring(i, i + 1).toUpperCase();
+          oneBased++;
+        }
+      }
+
+      newSentence += " ";
+    }
+
+    return newSentence.trim();
+
+    // String newSentence = "";
+    // int oneBased = 1;
+    // for (int i = 0; i < sentence.length(); i++){
+    //   if (oneBased % 2 != 0 && sentence.charAt(i) != ' '){
+    //     newSentence += sentence.substring(i, i + 1).toLowerCase();
+    //     oneBased++;
+    //   } else if (oneBased % 2 == 0 && sentence.charAt(i) != ' '){
+    //     newSentence += sentence.substring(i, i + 1).toUpperCase();
+    //     oneBased++;
+    //   } else if (sentence.charAt(i) == ' '){
+    //     newSentence += " ";
+    //   }
+    // }
+
+    // return newSentence;
   }
 
 
